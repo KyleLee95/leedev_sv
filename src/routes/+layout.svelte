@@ -1,40 +1,21 @@
 <script>
 	import '../app.css';
 	import Navbar from '$lib/Navbar.svelte';
+	export let children;
 
-	let { children } = $props();
+	let isSidebarOpen = false;
+
+	const toggleSidebar = () => {
+		isSidebarOpen = !isSidebarOpen;
+	};
+
+	const navItems = [
+		{ display: 'About', to: '/about' },
+		{ display: 'Blog', to: '/blog' }
+	];
 </script>
 
-<div class="container">
-	<Navbar />
-	<main id="content">
-		{@render children()}
-	</main>
+<div class="h-full w-full flex">
+	<Navbar {navItems} {toggleSidebar} {isSidebarOpen} />
+	<main class="flex-1 bg-gray-50 p-4">{@render children()}</main>
 </div>
-
-<style>
-	.container {
-		display: flex;
-		flex-direction: column;
-		height: 100vh;
-	}
-	#content {
-		flex: 1;
-		padding: 20px;
-		text-align: center;
-	}
-
-	/* Responsive styles */
-	@media (min-width: 768px) {
-		/* Hide top bar on larger screens */
-
-		.container {
-			display: grid;
-			grid-template-columns: 250px 1fr; /* Sidebar takes 250px, content takes remaining space */
-		}
-
-		#content {
-			text-align: left;
-		}
-	}
-</style>
