@@ -1,21 +1,18 @@
-<script>
+<script lang="ts">
 	import '../app.css';
-	import Navbar from '$lib/Navbar.svelte';
-	export let children;
-
-	let isSidebarOpen = false;
-
-	const toggleSidebar = () => {
-		isSidebarOpen = !isSidebarOpen;
-	};
-
-	const navItems = [
-		{ display: 'About', to: '/about' },
-		{ display: 'Blog', to: '/blog' }
-	];
+	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
+	import AppSidebar from '$lib/components/app-sidebar.svelte';
+	import { ModeWatcher } from 'mode-watcher';
+	let { children } = $props();
 </script>
 
-<div class="h-full w-full flex">
-	<Navbar {navItems} {toggleSidebar} {isSidebarOpen} />
-	<main class="flex-1 bg-gray-50 p-4">{@render children()}</main>
-</div>
+<ModeWatcher />
+<Sidebar.Provider>
+	<AppSidebar />
+	<div class="w-screen h-screen mx-auto">
+		<main class="w-full h-screen">
+			<Sidebar.Trigger />
+			{@render children?.()}
+		</main>
+	</div>
+</Sidebar.Provider>

@@ -5,4 +5,4 @@
 	<title>About | Kyle Lee</title>
 </svelte:head>
 
-<div></div>
+<div>About</div>
