@@ -1,21 +1,18 @@
 <script lang="ts">
 	import { Github, Linkedin, Sun, Moon, LinkedinIcon } from 'lucide-svelte/icons';
-	import { resetMode, setMode } from 'mode-watcher';
-	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
-	import { Button } from '$lib/components/ui/button/index.js';
 	import { buttonVariants } from '$lib/components/ui/button/index.js';
-	import * as Sidebar from './ui/sidebar/index.js';
 	import { cn } from '$lib/utils.js';
+	import ModeToggle from './mode-toggle.svelte';
+	import MainNav from './main-nav.svelte';
+	import MobileNav from './mobile-nav.svelte';
 </script>
 
 <header
 	class="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur"
 >
 	<div class="container flex h-14 max-w-screen-2xl items-center">
-		<!-- <MainNav /> -->
-		<!-- <MobileNav /> -->
-
-		<Sidebar.Trigger />
+		<MainNav />
+		<MobileNav />
 		<div class="flex flex-1 items-center justify-between space-x-2 md:justify-end">
 			<div class="w-full flex-1 md:w-auto md:flex-none">
 				<!-- <CommandMenu /> -->
@@ -45,10 +42,11 @@
 							'h-8 w-8 px-0'
 						)}
 					>
-						<LinkedinIcon />
-						<span class="sr-only">X (formerly known as Twitter)</span>
+						<Linkedin />
+						<span class="sr-only">Linkedin</span>
 					</div>
 				</a>
+				<ModeToggle />
 			</nav>
 		</div>
 	</div>

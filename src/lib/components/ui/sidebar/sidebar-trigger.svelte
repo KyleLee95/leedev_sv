@@ -26,7 +26,7 @@
 	data-sidebar="trigger"
 	variant="ghost"
 	size="icon"
-	class={cn('md:hidden block pl-2 h-7 w-7', className)}
+	class={cn('pl-2 h-7 w-7', className)}
 	{...restProps}
 >
 	<Menu />
