@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Github, Linkedin, Sun, Moon, LinkedinIcon } from 'lucide-svelte/icons';
+	import { Github, Linkedin } from 'lucide-svelte/icons';
 	import { buttonVariants } from '$lib/components/ui/button/index.js';
 	import { cn } from '$lib/utils.js';
 	import ModeToggle from './mode-toggle.svelte';

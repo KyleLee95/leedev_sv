@@ -3,9 +3,12 @@
 	import SiteHeader from '$lib/components/site-header.svelte';
 	import { ModeWatcher } from 'mode-watcher';
 	let { children } = $props();
+	import { browser } from '$app/environment';
 </script>
 
-<ModeWatcher />
+{#if browser}
+	<ModeWatcher />
+{/if}
 <div class="w-screen h-screen mx-auto">
 	<main class="w-full h-screen">
 		<SiteHeader />
