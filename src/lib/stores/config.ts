@@ -3,6 +3,8 @@ import { persisted } from "svelte-persisted-store";
 import type { Style } from "$lib/registry/styles.js";
 import type { Theme } from "$lib/registry/themes.js";
 
+
+
 type Config = {
 	style: Style["name"];
 	theme: Theme["name"];
